@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Frase google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <title>Reto 04</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Roboto Mono", monospace;
+    }
+    .page {
+      display: none;
+    }
+    .pageContainer {
+      background-color: #ffccbc;
+      height: calc(100vh - 180px);
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      /* padding-left: 30px;w */
+      width: 100%;
+      height: 80px;
+      background-color: #ff5722;
+      color: #e3dddd;
+    }
+    .foo {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      background-color: #ffccbc;
+      padding: 30px;
+      width: 100%;
+      height: 100px;
+      color: #212121;
+    }
+    #btnGuardar {
+      padding: 0.6rem;
+      border-radius: 50px;
+      background-color: #5baa5bcc;
+      border: solid 1px #dcd5d5;
+      cursor: pointer;
+    }
+    #btnGuardar:hover {
+      background-color: #ff5722;
+      border: solid 1px #dcd5d5;
+    }
+    .btnIngresar {
+      justify-content: end;
+      align-items: end;
+      height: 1rem;
+      padding: 0.5rem;
+      padding-bottom: 1.3rem;
+      border: none;
+      font-size: 12px;
+      background-color: #fffefe00;
+      /* width: 100%; */
+    }
+    .contenedorFrase {
+      display: flex;
+      justify-content: center;
+    }
+    #frases {
+      font-family: "Caveat", cursive;
+      padding-top: 20vh;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      align-items: center;
+      justify-items: center;
+      color: #383434;
+      font-size: 2rem;
+    }
+    .containerArea {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      padding-top: 3rem;
+    }
+    .label {
+      padding-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .pCategoria {
+      font-size: 1.5rem;
+      padding-top: 1rem;
+    }
+    #ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      flex-direction: column;
+      text-transform: capitalize;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    li p {
+      padding-top: 10px;
+      margin: 0;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    #imgOculto {
+      display: none;
+      width: 100%;
+      border-radius: 20px;
+    }
+    .img {
+      width: 100px;
+      border-radius: 20px;
+    }
+    .containerImg {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .check {
+      display: contents;
+    }
+    #check {
+      margin-left: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .containerDescrip {
+      border: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: capitalize;
+      padding-top: 4rem;
+    }
+    .div_page4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0.8rem;
+      padding-right: 2rem;
+    }
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* margin: 20px; */
+      padding: 0.8rem;
+      padding-right: 2rem;
+    }
+    .pp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      margin: 0 auto;
+      padding-top: 2rem;
+      /* border: solid #7b7070 1px; */
+      /* border-radius: 20px; */
+      max-width: 200px;
+      /* color: #212121; */
+    }
+    .itemTitulo {
+      font-size: 1.3rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      color: #353232;
+      text-transform: uppercase;
+    }
+    .input {
+      width: 2rem;
+      height: 1.3rem;
+      margin: 20px;
+    }
+    .trash {
+      width: 1.8rem;
+    }
+    .tachado {
+      text-decoration: line-through;
+    }
+    .cerrar {
+      width: 80%;
+      display: flex;
+      justify-content: right;
+      align-content: end;
+      background-color: #faf6f600;
+      border: none;
+    }
+    .bi-plus-circle,
+    .bi-x-circle,
+    .bi-plus-circle,
+    .bi-arrow-left-circle,
+    .bi-trash {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      color: red;
+      text-align: end;
+      font-size: xx-large;
+      cursor: pointer;
+      width: 100%;
+    }
+    .bi-x-circle {
+      padding-top: 15px;
+      padding-right: 0px;
+      font-size: 3rem;
+    }
+    .bi-trash {
+      color: #212121;
+    }
+    .bi-escape {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      color: red;
+      font-size: xx-large;
+      cursor: pointer;
+    }
+    .pm {
+      display: contents;
+      align-items: center;
+      padding-left: 16px;
+      padding-right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .containerPage4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* border: solid 1px grey; */
+      /* border-radius: 20px; */
+      /* width: 50%; */
+      margin: 0 auto;
+      margin-top: 5rem;
+      padding: 1rem;
+    }
+    .contenedorTareasPendientes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3rem;
+      color: #383434;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <nav class="nav">Organiza tus tareas</nav>
+    </header>
+    <section id="page1" class="page pageContainer">
+      <div class="contenedorFrase">
+        <p id="frases"></p>
+      </div>
+      <div
+        id="tareasPendientesContainer"
+        class="contenedorTareasPendientes"
+      ></div>
+    </section>
+
+    <section id="page2" class="page pageContainer">
+      <div class="containerArea">
+        <label for="Tarea" class="label">Tarea</label>
+        <input
+          type="text"
+          id="tareas"
+          class="form-control-lg"
+          placeholder="Agregar tarea"
+        />
+        <p class="pCategoria">Categorias</p>
+        <label for="seleccionarTarea">
+          <select
+            class="form-select mb-3"
+            name="seleccionarTarea"
+            id="seleccion"
+            onchange="seleccionar()"
+          >
+            <option value="seleccionar">seleccionar</option>
+            <option value="compras">Compras</option>
+            <option value="trabajo">Trabajo</option>
+            <option value="diversion">Diversión</option>
+            <option value="vehiculos">Vehiculos</option>
+            <option value="salidas">Salidas</option>
+            <option value="estudiar">Estudiar</option>
+            <option value="recordar">Recordar</option>
+            <option value="cumples">Cumples</option>
+          </select>
+        </label>
+
+        <textarea
+          class="form-control-lg mt-2 mb-3"
+          name="descripcion"
+          id="textArea"
+          placeholder="descripcion"
+          cols="25"
+          rows="5"
+        ></textarea>
+        <button id="btnGuardar">Guardar</button>
+      </div>
+    </section>
+    <!-- Tercer seccion -->
+
+    <section id="page3" class="page pageContainer">
+      <div id="descrip" class="div_page4"></div>
+    </section>
+    <!-- Cuarta Seccion -->
+
+    <section id="page4" class="page pageContainer">
+      <button id="cerrar" class="cerrar">
+        <i class="bi bi-x-circle"></i>
+      </button>
+      <div id="ulDesc" class="containerPage4"></div>
+    </section>
+
+    <footer class="foo">
+      <!-- boton ingresar -->
+      <button id="btn" class="btnIngresar">
+        <i class="bi bi-plus-circle"></i>
+      </button>
+      <!-- boton salir -->
+      <button id="btnSalir" class="btnIngresar">
+        <i class="bi bi-escape"></i>
+      </button>
+      <!-- boton volver -->
+      <button id="btnSalir2" class="btnIngresar">
+        <!-- <i class="bi bi-arrow-left-circle"></i> -->
+        <i class="bi bi-plus-circle"></i>
+      </button>
+    </footer>
+    <script>
+      // frases random
+      let frases = [
+        "¿Tú conoces a pin pon?... Si... es un muñeco muy guapo y de carton.... Si se lava la carita con agua y con jabón",
+        "Ya merito???",
+        "Los ogros son como cebollas. ...",
+        "¡Mejor fuera que dentro, siempre digo!. ...",
+        "Eres un primor de dragonzuela",
+        "Por ti, baby, sería Batman",
+        "Tu cara parece tallada por los mismos ángeles",
+        "¡Cuanto antes lleguemos a DuLoc, mejor!",
+        "Gracias, muchas gracias, doy clases los jueves, no cobro mucho",
+      ];
+
+      const random = Math.floor(Math.random() * 9);
+      let pFrases = document.getElementById("frases");
+      pFrases.innerHTML = `"${frases[random]}"`;
+
+      // instanciar secciones
+      let seccion1 = document.getElementById("page1");
+      let seccion2 = document.getElementById("page2");
+      let seccion3 = document.getElementById("page3");
+      let seccion4 = document.getElementById("page4");
+      let btnDisplay = document.getElementById("btn");
+      let btnSalir = document.getElementById("btnSalir");
+      let btnSalir2 = document.getElementById("btnSalir2");
+      let btnGuardar = document.getElementById("btnGuardar");
+      let div = document.getElementById("descrip");
+      let p = document.getElementById("p");
+      let selector = document.getElementById("seleccion").value; // selecciona los valores de los option
+      let check = document.getElementById("check");
+      let btnCheckDelete = document.getElementById("btnCheckDelete");
+      // let pDesc = document.getElementById("pDesc");
+      let tareas = [];
+
+      // Función displey
+
+      seccion1.style.display = "block";
+      // btnDisplay.textContent = "Ingresar";
+      btnSalir.style.display = "none";
+      btnSalir2.style.display = "none";
+
+      btnDisplay.addEventListener("click", () => {
+        seccion1.style.display = "none";
+        seccion2.style.display = "block";
+        seccion3.style.display = "none";
+        seccion4.style.display = "none";
+        btnDisplay.style.display = "none";
+        btnSalir.style.display = "none";
+        btnSalir2.style.display = "none";
+      });
+
+      btnSalir.addEventListener("click", () => {
+        seccion1.style.display = "block";
+        seccion2.style.display = "none";
+        btnDisplay.style.display = "block";
+        seccion3.style.display = "none";
+        seccion4.style.display = "none";
+        btnSalir.style.display = "none";
+        btnSalir2.style.display = "none";
+      });
+
+      const seleccionar = () => {
+        let selector = document.getElementById("seleccion").value;
+        // let option = document.getElementById("seleccionar");
+        console.log(selector);
+      };
+
+      btnGuardar.addEventListener("click", () => {
+        let selector = document.getElementById("seleccion").value;
+        let nombre = document.getElementById("tareas").value;
+        let descripcion = document.getElementById("textArea").value;
+        let imagen = "";
+
+        if (nombre == "" || !isNaN(nombre)) {
+          //   alert("Ingresa una tarea valida");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ingresa una tarea valida!",
+          });
+          return; // ver esta verificacion <--------
+        }
+        if (descripcion == "") {
+          //   alert("Ingresa una descripción");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ingresa una descripción!",
+          });
+          return; // ver esta verificacion <--------
+        }
+
+        if (selector === "seleccionar") {
+          //   alert("Seleccione una categoria");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ingresa una categoria!",
+          });
+          return; // ver esta verificacion <--------
+        }
+        if (selector === "") {
+          //   alert("Seleccione una categoria");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ingresa una categoria!",
+          });
+          return; // ver esta verificacion <--------
+        }
+
+        if (selector === "compras") {
+          // imagen.style.display = "block";
+          imagen = "https://gaston1509.github.io/imgEasterHack2024/viveres.png";
+        }
+        if (selector === "vehiculos") {
+          // imagen.style.display = "block";
+          imagen = "https://gaston1509.github.io/imgEasterHack2024/fiat600.png";
+        }
+        if (selector === "trabajo") {
+          // imagen.style.display = "block";
+
+          imagen = "https://gaston1509.github.io/imgEasterHack2024/trabajo.png";
+        }
+        if (selector === "diversion") {
+          // imagen.style.display = "block";
+
+          imagen =
+            "https://gaston1509.github.io/imgEasterHack2024/entretenimiento.png";
+        }
+        if (selector === "estudiar") {
+          // imagen.style.display = "block";
+          imagen =
+            "https://gaston1509.github.io/imgEasterHack2024/estudiar.png";
+        }
+        if (selector === "salidas") {
+          // imagen.style.display = "block";
+          imagen = "https://gaston1509.github.io/imgEasterHack2024/salidas.png";
+        }
+        if (selector === "recordar") {
+          // imagen.style.display = "block";
+          imagen =
+            "https://gaston1509.github.io/imgEasterHack2024/recordar.png";
+        }
+        if (selector === "cumples") {
+          // imagen.style.display = "block";
+          imagen = "https://gaston1509.github.io/imgEasterHack2024/cumple.png";
+        }
+
+        let objetoTareas = {
+          titulo: selector,
+          seleccion: nombre,
+          descripcion: descripcion,
+          imagen: imagen,
+        };
+        //----- array
+
+        tareas.push(objetoTareas);
+        console.log(objetoTareas);
+
+        // Iniciar LocalStorade.JSON
+
+        localStorage.setItem("tareas", JSON.stringify(tareas));
+
+        seccion1.style.display = "none";
+        seccion3.style.display = "block";
+        seccion2.style.display = "none";
+        btnSalir2.style.display = "block";
+
+        document.getElementById("seleccion").value = "";
+        document.getElementById("tareas").value = "";
+        document.getElementById("textArea").value = "";
+
+        renderTareas();
+
+        actualizarTareasPendientes(); // Llamar aquí para actualizar la vista
+      });
+
+      // Verificar estado y recuperar localStorage.parse
+
+      let tareasRecuperadasLS = localStorage.getItem("tareas");
+      if (tareasRecuperadasLS) {
+        tareasRecuperadasLS = JSON.parse(tareasRecuperadasLS);
+        if (tareasRecuperadasLS.length > 0) {
+          tareas = tareasRecuperadasLS;
+        }
+      }
+      actualizarTareasPendientes(); // Llamar aquí para actualizar la vista al cargar
+
+      // console.log(typeof tareasRecuperadasLS);
+
+      // Boton volver al formulario y borrar tareas
+      btnSalir2.addEventListener("click", () => {
+        console.log("descripcion");
+        seccion2.style.display = "block";
+        seccion3.style.display = "none";
+        seccion4.style.display = "none";
+
+        // Borrar los campos de entrada
+        document.getElementById("seleccion").value = "";
+        document.getElementById("tareas").value = "";
+        document.getElementById("textArea").value = "";
+      });
+
+      function renderTareas() {
+        div.innerHTML = "";
+        tareas.forEach((tarea, index) => {
+          div.innerHTML += `
+                <li id="item${index}" class="item">
+                  <p id="pLoco${index}" class="itemTitulo">${tarea.titulo}</p>
+                  <img src="${tarea.imagen}" alt="${tarea.titulo}" class="img" />
+                  <input type="checkbox" id="check${index}" class="input" />
+                  <button id="btnCheckDelete${index}" class="pm">
+                   <i class="bi bi-trash"></i>
+                  </button>
+                </li>
+                    `;
+        });
+
+        let checkboxes = document.querySelectorAll(".input");
+
+        checkboxes.forEach((checkbox, index) => {
+          checkbox.addEventListener("click", () => {
+            let pTitulo = document.getElementById(`pLoco${index}`);
+            if (checkbox.checked) {
+              pTitulo.classList.add("tachado");
+              // alert("Tarea realizada");
+              Swal.fire("Tarea realizada!");
+            } else {
+              pTitulo.classList.remove("tachado");
+            }
+          });
+        });
+
+        let borrarBotones = document.querySelectorAll('[id^="btnCheckDelete"]');
+
+        borrarBotones.forEach((button, index) => {
+          button.addEventListener("click", () => {
+            Swal.fire({
+              title: "¿Está seguro de que desea eliminar esta tarea?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Sí",
+              cancelButtonText: "No",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                tareas.splice(index, 1);
+                localStorage.setItem("tareas", JSON.stringify(tareas)); // Actualizar el localStorage
+                renderTareas();
+                actualizarTareasPendientes(); // Llamar aquí para actualizar la vista
+                if (tareas.length === 0) {
+                  seccion3.style.display = "none";
+                  seccion1.style.display = "block";
+                  btnDisplay.style.display = "block";
+                  btnSalir.style.display = "none";
+                  btnSalir2.style.display = "none";
+                  localStorage.removeItem("tareas");
+                }
+                Swal.fire({
+                  title: "¡Tarea Eliminada!",
+                  icon: "success",
+                });
+              }
+            });
+          });
+        });
+
+        let imgTareas = document.querySelectorAll(".img");
+
+        imgTareas.forEach((img, index) => {
+          img.addEventListener("click", () => {
+            let tarea = tareas[index];
+            seccion3.style.display = "none";
+            seccion4.style.display = "block";
+            btnSalir.style.display = "none";
+            btnSalir2.style.display = "block";
+            let ulDesc = document.getElementById("ulDesc");
+            ulDesc.innerHTML =
+              //  `
+              //         <img src="${tarea.imagen}" alt="${tarea.titulo}" class="imgDescrip" />
+              //         <p class="pp">${tarea.descripcion}</p>
+              //       `;
+
+              `<div class="card" style="width: 18rem;">
+              <img src="${tarea.imagen}" class="card-img-top" alt="${tarea.titulo}">
+              <div class="card-body">
+              <p class="card-text text-center">${tarea.descripcion}</p>
+              </div>
+              </div>`;
+          });
+        });
+
+        let botonDescripcion = document.querySelector(".bi-x-circle");
+
+        function cerrarDescripcion() {
+          console.log("cerro");
+          seccion1.style.display = "none";
+          seccion2.style.display = "none";
+          seccion3.style.display = "block";
+          seccion4.style.display = "none";
+          btnDisplay.style.display = "none";
+          btnSalir.style.display = "none";
+          btnSalir2.style.display = "block";
+        }
+        botonDescripcion.addEventListener("click", cerrarDescripcion);
+      }
+
+      function actualizarTareasPendientes() {
+        let tareasPendientesContainer = document.getElementById(
+          "tareasPendientesContainer"
+        );
+        tareasPendientesContainer.innerHTML = "";
+
+        if (tareas.length === 0) {
+          tareasPendientesContainer.innerHTML =
+            "<p>No hay tareas pendientes</p>";
+        } else {
+          tareasPendientesContainer.innerHTML = `<p>Tareas pendientes: ${tareas.length}</p>`;
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
